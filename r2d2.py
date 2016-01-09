@@ -22,6 +22,8 @@ if __name__ == '__main__':
 	data = b""
 	chunk = 1024
 	for letter in word:
+		if not letter.isalpha():
+			continue
 		try:
 			with wave.open(root.format(letter), "rb") as f:
 				data += f.readframes(f.getnframes())
