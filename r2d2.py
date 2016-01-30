@@ -4,8 +4,10 @@ import wave
 import time
 import pyaudio
 import sys
+import os
 
 if __name__ == '__main__':
+	baseLocation = os.path.dirname(__file__)
 	if len(sys.argv) == 2:
 		word = sys.argv[-1].lower()
 	elif len(sys.argv) == 1:
@@ -13,7 +15,7 @@ if __name__ == '__main__':
 	else:
 		print("Usage : ./r2d2.py (string)")
 		sys.exit(-1)
-	root = "sounds/{0}.wav"
+	root = baseLocation + "/sounds/{0}.wav"
 	p = pyaudio.PyAudio()
 	stream = p.open(format = p.get_format_from_width(2),
 		channels = 1,
@@ -30,7 +32,7 @@ if __name__ == '__main__':
 		except Exception as e:
 			print(e)
 	stream.write(data)
-	wf = wave.open("out.wav", 'wb')
+	wf = wave.open(baseLocation + "/out.wav", 'wb')
 	wf.setnchannels(1)
 	wf.setsampwidth(p.get_sample_size(pyaudio.paInt16))
 	wf.setframerate(22050)
