@@ -1,5 +1,7 @@
 # PyTalk R2D2
 
+![R2D2](https://upload.wikimedia.org/wikipedia/en/3/39/R2-D2_Droid.png)
+
 Python script for R2D2 TTS
 
 ## Usage
